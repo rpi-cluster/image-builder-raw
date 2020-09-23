@@ -10,15 +10,15 @@ jobs:
           command: |
             make rpi-raw-image-data
 
-      - run:
-          name: Create RPi raw image
-          command: |
-            make rpi-raw-image
+      # - run:
+      #     name: Create RPi raw image
+      #     command: |
+      #       make rpi-raw-image
 
-      - run:
-          name: Create Odroid raw image
-          command: |
-            make odroid-raw-image
+      # - run:
+      #     name: Create Odroid raw image
+      #     command: |
+      #       make odroid-raw-image
 
       - run:
           name: Prepare artifacts
@@ -41,7 +41,7 @@ jobs:
               if [[ $CIRCLE_TAG = *"rc"* ]]; then
                 pre=-prerelease
               fi
-              ./ghr_v0.13.0_linux_amd64/ghr $pre -u rpi-cluster $CIRCLE_TAG output/
+              ./ghr_v0.13.0_linux_amd64/ghr $pre -u rpi-cluster -r image-builder-raw $CIRCLE_TAG output/
             fi
 
 workflows:
