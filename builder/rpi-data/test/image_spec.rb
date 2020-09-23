@@ -2,7 +2,7 @@ require 'serverspec'
 set :backend, :exec
 
 describe "Raw Image" do
-  let(:image_path) { return '/rpi-raw.img' }
+  let(:image_path) { return '/rpi-raw-data.img' }
 
   it "exists" do
     image_file = file(image_path)
