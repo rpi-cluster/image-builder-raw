@@ -32,11 +32,14 @@ jobs:
       - persist_to_workspace:
           root: /home/circleci/project/output
           paths:
-            - ./*
+            - ./*.*
 
   deploy:
     machine: true
     steps:
+      - attach_workspace:
+          at: /home/circleci/project/output
+
       - deploy:
           name: Deploy
           command: |
