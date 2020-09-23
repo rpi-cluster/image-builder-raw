@@ -29,6 +29,11 @@ jobs:
       - store_artifacts:
           path: /home/circleci/project/output
 
+      - persist_to_workspace:
+          root: /home/circleci/project/output
+          paths:
+            - ./*
+
   deploy:
     machine: true
     steps:
@@ -49,7 +54,7 @@ workflows:
   build-n-deploy:
     jobs:
       - build:
-          filters:  # required since `deploy` has tag filters AND requires `build`
+          filters: # required since `deploy` has tag filters AND requires `build`
             tags:
               only: /.*/
       - deploy:
