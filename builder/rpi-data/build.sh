@@ -8,7 +8,7 @@ fi
 
 ### setting up some important variables to control the build process
 BUILD_RESULT_PATH="/workspace"
-IMAGE_PATH="rpi-raw.img"
+IMAGE_PATH="rpi-raw-data.img"
 SD_CARD_SIZE=7000 # MB
 BOOT_PARTITION_SIZE=100 
 ROOT_PARTITION_SIZE=4000 # MB
@@ -77,4 +77,4 @@ cd ${BUILD_RESULT_PATH} && sha256sum "${IMAGE_PATH}.zip" > "${IMAGE_PATH}.zip.sh
 
 fdisk -l /rpi-raw.img
 # test raw image that we have built
-rspec --format documentation --color /builder/rpi-readonly/test
+rspec --format documentation --color /builder/rpi-data/test

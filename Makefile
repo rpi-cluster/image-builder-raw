@@ -6,8 +6,8 @@ build:
 rpi-raw-image: build
 	docker run --rm --privileged -v $(shell pwd):/workspace image-builder-raw /builder/rpi/build.sh
 
-rpi-raw-image-readonly: build
-	docker run --rm --privileged -v $(shell pwd):/workspace image-builder-raw /builder/rpi-readonly/build.sh
+rpi-raw-image-data: build
+	docker run --rm --privileged -v $(shell pwd):/workspace image-builder-raw /builder/rpi-data/build.sh
 
 odroid-raw-image: build
 	docker run --rm --privileged -v $(shell pwd):/workspace image-builder-raw /builder/odroid/build.sh

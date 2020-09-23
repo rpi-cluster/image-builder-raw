@@ -4,6 +4,12 @@ jobs:
     machine: true
     steps:
       - checkout
+
+      - run:
+          name: Create RPi raw image with data partition
+          command: |
+            make rpi-raw-image-data
+
       - run:
           name: Create RPi raw image
           command: |
